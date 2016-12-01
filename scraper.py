@@ -103,8 +103,18 @@ for block in blocks:
         title = block.text.strip().split('for')[-1].strip()
         csvMth = title[:3]
         csvYr = title[-4:]
-        if '-' in title:
+        if '5/16' in title:
+            csvYr = '2015'
+            csvMth = 'Y1'
+        if u'December 2014-March' in title:
+            csvYr = '2015'
             csvMth = 'Q0'
+        if u'October-November 2014' in title:
+            csvYr = '2014'
+            csvMth = 'Q0'
+        if '5-16' in title:
+            csvYr = '2015'
+            csvMth = 'Y1'
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, link])
 
@@ -120,6 +130,9 @@ for block in blocks:
         if '-' in title:
             csvMth = 'Q0'
         if 'Roy' in csvMth:
+            csvMth = 'Y1'
+        if '5-16' in csvYr:
+            csvYr = '2015'
             csvMth = 'Y1'
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, link])
