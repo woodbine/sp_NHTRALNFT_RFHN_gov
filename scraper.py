@@ -115,6 +115,9 @@ for block in blocks:
         if '5-16' in title:
             csvYr = '2015'
             csvMth = 'Y1'
+        if '6/17' in title:
+            csvYr = '2016'
+            csvMth = 'Y1'
         csvMth = convert_mth_strings(csvMth.upper())
         data.append([csvYr, csvMth, link])
 
